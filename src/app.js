@@ -3,14 +3,15 @@ const cors = require('cors');
 const morgan = require('morgan');
 const routerApi = require('./routes');
 const db = require("./utils/database");
+const initModels = require("./models/initModels");
 
 const app=express();
 
 app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
-const initModels = require("./models/initModels");
 
+initModels();
 
 db.authenticate()
   .then(() => console.log("Autenticación exitosa"))
@@ -20,7 +21,7 @@ db.sync( {force: false})
 .then(() => console.log("Base sincronizada"))
 .catch((error) => console.log(error));
 
-initModels();
+
 
 routerApi(app);
 
