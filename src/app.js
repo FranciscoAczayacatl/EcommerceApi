@@ -3,7 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const routerApi = require('./routes');
 const db = require("./utils/database");
-const initModels = require("./models/initModels");
+const initModels = require("./models/InitModels");
 
 const app=express();
 
