@@ -9,7 +9,7 @@ const app=express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
-const initModels = require("./models/initModels");
+const initModels = require("./models/InitModels");
 
 
 db.authenticate()
